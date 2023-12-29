@@ -51,7 +51,7 @@ rsconnect/
 .gitignore
 .Rproj
 
-# OML Project
+# OML Project file
 kepler16b-example/
 .metadata/
 
@@ -64,4 +64,6 @@ kepler16b-example/
 # Readme.rmd
 README.html
 README_files/
+
+
 

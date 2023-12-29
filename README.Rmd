@@ -147,5 +147,15 @@ When Fuseki server has failed to start, this command helps to solve the issue in
 
 
 ```{r}
+oml_startFuseki(oml_repository)
+
 oml_refresh()
 ```
+
+## Example workflows
+
+<TBD>
+
+
+
+

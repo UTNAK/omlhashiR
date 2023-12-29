@@ -64,7 +64,7 @@ oml_repository <- "./kepler16b-example"
 ``` r
 oml_clean(oml_repository)
 #> [1] "> Task :clean"                 ""                             
-#> [3] "BUILD SUCCESSFUL in 674ms"     "1 actionable task: 1 executed"
+#> [3] "BUILD SUCCESSFUL in 647ms"     "1 actionable task: 1 executed"
 ```
 
 #### build
@@ -91,7 +91,7 @@ oml_owlLoad(oml_repository)
 #>  [3] "> Task :owlReason UP-TO-DATE"                                                                 
 #>  [4] ""                                                                                             
 #>  [5] "> Task :startFuseki"                                                                          
-#>  [6] "Fuseki server has now successfully started with pid=22509, listening on http://localhost:3030"
+#>  [6] "Fuseki server has now successfully started with pid=25146, listening on http://localhost:3030"
 #>  [7] ""                                                                                             
 #>  [8] "> Task :owlLoad"                                                                              
 #>  [9] ""                                                                                             
@@ -109,7 +109,7 @@ oml_owlReason(oml_repository)
 #> [2] "> Task :omlToOwl UP-TO-DATE"            
 #> [3] "> Task :owlReason UP-TO-DATE"           
 #> [4] ""                                       
-#> [5] "BUILD SUCCESSFUL in 573ms"              
+#> [5] "BUILD SUCCESSFUL in 565ms"              
 #> [6] "3 actionable tasks: 3 up-to-date"
 ```
 
@@ -126,7 +126,7 @@ oml_owlQuery(oml_repository)
 #> [5] "> Task :owlLoad UP-TO-DATE"                  
 #> [6] "> Task :owlQuery"                            
 #> [7] ""                                            
-#> [8] "BUILD SUCCESSFUL in 719ms"                   
+#> [8] "BUILD SUCCESSFUL in 772ms"                   
 #> [9] "6 actionable tasks: 1 executed, 5 up-to-date"
 ```
 
@@ -137,7 +137,7 @@ oml_owlQuery(oml_repository)
 ``` r
 oml_startFuseki(oml_repository)
 #> [1] "> Task :startFuseki UP-TO-DATE"  ""                               
-#> [3] "BUILD SUCCESSFUL in 529ms"       "1 actionable task: 1 up-to-date"
+#> [3] "BUILD SUCCESSFUL in 528ms"       "1 actionable task: 1 up-to-date"
 ```
 
 #### stopFuseki
@@ -148,9 +148,9 @@ oml_startFuseki(oml_repository)
 oml_stopFuseki(oml_repository)
 #> [1] ""                                             
 #> [2] "> Task :stopFuseki"                           
-#> [3] "Fuseki server with pid=22509 has been stopped"
+#> [3] "Fuseki server with pid=25146 has been stopped"
 #> [4] ""                                             
-#> [5] "BUILD SUCCESSFUL in 531ms"                    
+#> [5] "BUILD SUCCESSFUL in 506ms"                    
 #> [6] "1 actionable task: 1 executed"
 ```
 
@@ -170,17 +170,15 @@ existing fuseki server PIDs. When Fuseki server has failed to start,
 this command helps to solve the issue in some case.
 
 ``` r
-ret <- system("lsof -P -i:3030", intern=TRUE)
-#> Warning in system("lsof -P -i:3030", intern = TRUE): running command 'lsof -P
-#> -i:3030' had status 1
-if(!length(ret)){
-  print("no process is running")
-}else{
-  pid <- unlist(strsplit(ret[2], "\\s+"))[2]
-  ret <- system(sprintf("kill -9 %s", pid), intern=TRUE)
-  if(!length(ret)){
-    sprintf("kill success for pid=%s", pid)
-  }
-}
-#> [1] "no process is running"
+oml_startFuseki(oml_repository)
+#> [1] "Starting a Gradle Daemon, 8 stopped Daemons could not be reused, use --status for details"    
+#> [2] ""                                                                                             
+#> [3] "> Task :startFuseki"                                                                          
+#> [4] "Fuseki server has now successfully started with pid=25223, listening on http://localhost:3030"
+#> [5] ""                                                                                             
+#> [6] "BUILD SUCCESSFUL in 7s"                                                                       
+#> [7] "1 actionable task: 1 executed"
+
+oml_refresh()
+#> [1] "kill success for pid=25223"
 ```
