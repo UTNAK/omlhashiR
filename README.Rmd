@@ -1,0 +1,151 @@
+---
+output: github_document
+always_allow_html: true
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# omlhashiR
+
+R wrapper for Gradle tasks of OML projects
+
+This package allows users to run Gradle tasks of OML projects from R. Note: Only Mac OS has been tested.
+
+[OML projects](https://www.opencaesar.io/oml-tutorials/#getting-ready) created by [openCAESAR](https://www.opencaesar.io/) are Gradle projects that have OML analysis tools configured as Gradle tasks in a build.gradle script. A user can invoke Gradle tasks from a console/terminal session using the Gradle Wrapper Command-Line Interface (e.g., ./gradlew owlLoad). The supported OML editors such as [OML Rosetta](https://github.com/opencaesar/oml-rosetta) and [OML Luxor](https://github.com/opencaesar/oml-luxor) allow invoking those Gradle tasks using a UI.
+
+In the MBSE practice using openCAESAR, the vocabularies are described to answer analysis questions. Typically, the process is iterative. Build OML vocabularies and descriptions, write queries in the SPARQL language for analysis, and modify the model based on the query results in an exploratory manner.
+
+This package aims to improve the reproducibility of the exploratory modeling process with documentation tools such as [R Markdown](https://rmarkdown.rstudio.com/) and [Quarto](https://quarto.org/).
+
+## Installation
+
+You can install the development version of "tansakusuR" from [GitHub](https://github.com/UTNAK/omlhashiR) with:
+
+```{r, eval = FALSE}
+# library(devtools)
+# install_github("UTNAK/omlhashiR")
+```
+
+## Usage
+
+### Prepare an OML project
+
+Here is an example OML project called [Kepler 16b](https://github.com/opencaesar/kepler16b-example). For details, check this [tutorial](http://www.opencaesar.io/oml-tutorials/#tutorial2).
+
+```         
+git clone https://github.com/opencaesar/kepler16b-example.git
+```
+
+### Run Gradle Tasks
+
+```{r}
+library(omlhashiR)
+oml_repository <- "./kepler16b-example"
+```
+
+#### clean
+
+```         
+./gradlew clean 
+```
+
+```{r}
+oml_clean(oml_repository)
+```
+
+
+#### build
+
+```         
+./gradlew build  
+```
+
+```{r}
+oml_build(oml_repository)
+```
+
+
+#### owlLoad
+
+```         
+./gradlew owlLoad  
+```
+
+```{r}
+oml_owlLoad(oml_repository)
+```
+
+
+#### owlReason
+
+```         
+./gradlew owlReason  
+```
+
+```{r}
+oml_owlReason(oml_repository)
+```
+
+
+#### owlQuery
+
+```         
+./gradlew owlQuery  
+```
+
+```{r}
+oml_owlQuery(oml_repository)
+```
+
+
+#### startFuseki
+
+```         
+./gradlew startFuseki  
+```
+
+```{r}
+oml_startFuseki(oml_repository)
+```
+
+
+#### stopFuseki
+
+```         
+./gradlew stopFuseki  
+```
+
+```{r}
+oml_stopFuseki(oml_repository)
+```
+
+
+#### --stop
+
+```         
+./gradlew --stop 
+```
+
+```{r}
+oml_stop_Daemon(oml_repository)
+```
+
+
+#### kill pid
+
+This process is not a gradle task but we often use this for killing existing fuseki server PIDs.
+When Fuseki server has failed to start, this command helps to solve the issue in some case. 
+
+
+```{r}
+oml_refresh()
+```
