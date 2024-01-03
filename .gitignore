@@ -53,6 +53,7 @@ rsconnect/
 
 # OML Project file
 kepler16b-example/
+open-source-rover/
 .metadata/
 
 # gitignore
@@ -65,5 +66,6 @@ kepler16b-example/
 README.html
 README_files/
 
+explore_osr.qmd
 
 

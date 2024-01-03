@@ -64,7 +64,7 @@ oml_repository <- "./kepler16b-example"
 ``` r
 oml_clean(oml_repository)
 #> [1] "> Task :clean"                 ""                             
-#> [3] "BUILD SUCCESSFUL in 807ms"     "1 actionable task: 1 executed"
+#> [3] "BUILD SUCCESSFUL in 1s"        "1 actionable task: 1 executed"
 ```
 
 #### build
@@ -77,7 +77,7 @@ oml_build(oml_repository)
 #>  [3] "> Task :downloadDependencies"   "> Task :omlToOwl"              
 #>  [5] "> Task :owlReason"              "> Task :check"                 
 #>  [7] "> Task :build"                  ""                              
-#>  [9] "BUILD SUCCESSFUL in 3s"         "4 actionable tasks: 4 executed"
+#>  [9] "BUILD SUCCESSFUL in 4s"         "4 actionable tasks: 4 executed"
 ```
 
 #### owlLoad
@@ -106,7 +106,7 @@ oml_owlReason(oml_repository)
 #> [2] "> Task :omlToOwl UP-TO-DATE"            
 #> [3] "> Task :owlReason UP-TO-DATE"           
 #> [4] ""                                       
-#> [5] "BUILD SUCCESSFUL in 587ms"              
+#> [5] "BUILD SUCCESSFUL in 600ms"              
 #> [6] "3 actionable tasks: 3 up-to-date"
 ```
 
@@ -123,7 +123,7 @@ oml_owlQuery(oml_repository)
 #> [5] "> Task :owlLoad UP-TO-DATE"                  
 #> [6] "> Task :owlQuery"                            
 #> [7] ""                                            
-#> [8] "BUILD SUCCESSFUL in 640ms"                   
+#> [8] "BUILD SUCCESSFUL in 715ms"                   
 #> [9] "6 actionable tasks: 1 executed, 5 up-to-date"
 ```
 
@@ -134,7 +134,7 @@ oml_owlQuery(oml_repository)
 ``` r
 oml_startFuseki(oml_repository)
 #> [1] "> Task :startFuseki UP-TO-DATE"  ""                               
-#> [3] "BUILD SUCCESSFUL in 507ms"       "1 actionable task: 1 up-to-date"
+#> [3] "BUILD SUCCESSFUL in 515ms"       "1 actionable task: 1 up-to-date"
 ```
 
 #### stopFuseki
@@ -145,9 +145,9 @@ oml_startFuseki(oml_repository)
 oml_stopFuseki(oml_repository)
 #> [1] ""                                             
 #> [2] "> Task :stopFuseki"                           
-#> [3] "Fuseki server with pid=12764 has been stopped"
+#> [3] "Fuseki server with pid=13161 has been stopped"
 #> [4] ""                                             
-#> [5] "BUILD SUCCESSFUL in 505ms"                    
+#> [5] "BUILD SUCCESSFUL in 522ms"                    
 #> [6] "1 actionable task: 1 executed"
 ```
 
@@ -168,16 +168,16 @@ this command helps to solve the issue in some case.
 
 ``` r
 oml_startFuseki(oml_repository)
-#> [1] "Starting a Gradle Daemon, 6 stopped Daemons could not be reused, use --status for details"    
+#> [1] "Starting a Gradle Daemon, 3 stopped Daemons could not be reused, use --status for details"    
 #> [2] ""                                                                                             
 #> [3] "> Task :startFuseki"                                                                          
-#> [4] "Fuseki server has now successfully started with pid=13144, listening on http://localhost:3030"
+#> [4] "Fuseki server has now successfully started with pid=16851, listening on http://localhost:3030"
 #> [5] ""                                                                                             
-#> [6] "BUILD SUCCESSFUL in 6s"                                                                       
+#> [6] "BUILD SUCCESSFUL in 7s"                                                                       
 #> [7] "1 actionable task: 1 executed"
 
 oml_refresh()
-#> [1] "kill success for pid=13144"
+#> [1] "kill success for pid=16851"
 ```
 
 ## Example workflows
@@ -227,11 +227,11 @@ oml_owlLoad(oml_repository)
 #>  [3] "> Task :owlReason UP-TO-DATE"                                                                 
 #>  [4] ""                                                                                             
 #>  [5] "> Task :startFuseki"                                                                          
-#>  [6] "Fuseki server has now successfully started with pid=13161, listening on http://localhost:3030"
+#>  [6] "Fuseki server has now successfully started with pid=16875, listening on http://localhost:3030"
 #>  [7] ""                                                                                             
 #>  [8] "> Task :owlLoad"                                                                              
 #>  [9] ""                                                                                             
-#> [10] "BUILD SUCCESSFUL in 4s"                                                                       
+#> [10] "BUILD SUCCESSFUL in 5s"                                                                       
 #> [11] "5 actionable tasks: 2 executed, 3 up-to-date"
 ```
 
@@ -413,7 +413,7 @@ oml_owlLoad(oml_repository)
 #> [4] "> Task :startFuseki UP-TO-DATE"         
 #> [5] "> Task :owlLoad UP-TO-DATE"             
 #> [6] ""                                       
-#> [7] "BUILD SUCCESSFUL in 689ms"              
+#> [7] "BUILD SUCCESSFUL in 719ms"              
 #> [8] "5 actionable tasks: 5 up-to-date"
 ```
 
@@ -461,8 +461,8 @@ total_mass
 ### Summary
 
 We demonstrated a case study of documenting the trial and error of the
-modeling process in a reproducible manner using Quarto documentation.
-[omlhashiR](https://github.com/UTNAK/omlhashiR)is a wrapper for
-executing gradle tasks from R.
+modeling process in a reproducible manner using R Markdown
+documentation. [omlhashiR](https://github.com/UTNAK/omlhashiR)is a
+wrapper for executing gradle tasks from R.
 [tansakusuR](https://github.com/UTNAK/tansakusuR) is a wrapper for
 sending SPARQL codes to the endpoint from R.

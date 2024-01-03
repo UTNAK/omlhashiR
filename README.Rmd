@@ -19,7 +19,8 @@ knitr::opts_chunk$set(
 > R wrapper for Gradle tasks of OML projects
 
 
-This package allows users to run Gradle tasks of OML projects from R. Note: Only Mac OS has been tested.
+This package allows users to run Gradle tasks of OML projects from R.
+Note: Only Mac OS has been tested.
 
 [OML projects](https://www.opencaesar.io/oml-tutorials/#getting-ready) created by [openCAESAR](https://www.opencaesar.io/) are Gradle projects that have OML analysis tools configured as Gradle tasks in a build.gradle script. A user can invoke Gradle tasks from a console/terminal session using the Gradle Wrapper Command-Line Interface (e.g., ./gradlew owlLoad). The supported OML editors such as [OML Rosetta](https://github.com/opencaesar/oml-rosetta) and [OML Luxor](https://github.com/opencaesar/oml-luxor) allow invoking those Gradle tasks using a UI.
 
@@ -375,6 +376,6 @@ total_mass
 
 ### Summary
 
-We demonstrated a case study of documenting the trial and error of the modeling process in a reproducible manner using Quarto documentation.
+We demonstrated a case study of documenting the trial and error of the modeling process in a reproducible manner using R Markdown documentation.
 [omlhashiR](https://github.com/UTNAK/omlhashiR)is a wrapper for executing gradle tasks from R. [tansakusuR](https://github.com/UTNAK/tansakusuR) is a wrapper for sending SPARQL codes to the endpoint from R. 
 
