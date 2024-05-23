@@ -1,7 +1,7 @@
 Package: omlhashiR
 Type: Package
 Title: R Wrapper for Gradle Tasks of OML Projects
-Version: 0.0.0.9001
+Version: 0.0.0.9002
 Authors@R: 
     person(given  = "Yuta",
            family = "Nakajima",

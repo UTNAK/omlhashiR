@@ -7,8 +7,8 @@
 #' @return output from gradle tasks
 #' @export
 #'
-oml_callTask <- function(oml_repository, task){
+oml_callTask <- function(oml_repository, task, intern=FALSE){
   command <- sprintf("cd %s\n ./gradlew %s", oml_repository, task)
-  ret <- system(command, intern=TRUE)
+  ret <- system(command, intern=intern)
   return(ret)
 }

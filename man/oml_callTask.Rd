@@ -4,7 +4,7 @@
 \alias{oml_callTask}
 \title{R wrapper for ./gradlew "taskname"}
 \usage{
-oml_callTask(oml_repository, task)
+oml_callTask(oml_repository, task, intern = FALSE)
 }
 \arguments{
 \item{oml_repository}{a repository of the oml project}
